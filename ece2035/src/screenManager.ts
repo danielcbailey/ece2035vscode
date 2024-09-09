@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import * as vscode from 'vscode';
-import * as fs from 'fs';
-import { TestCase } from './testcases/testCase';
+import * as vscode from "vscode";
+import * as fs from "fs";
+import { TestCase } from "./testcases/testCase";
 
 export class ScreenManager {
     private screenOpened = false;
-    private context :vscode.ExtensionContext;
+    private context: vscode.ExtensionContext;
     private screenPanel: vscode.WebviewPanel | undefined;
     private commandHandlers: Map<string, (data: any) => void> = new Map();
 
@@ -22,18 +22,20 @@ export class ScreenManager {
         }
 
         this.screenPanel = vscode.window.createWebviewPanel(
-            'screenView',
-            'RISC-V Screen View',
+            "screenView",
+            "RISC-V Screen View",
             {
                 preserveFocus: true,
                 viewColumn: vscode.ViewColumn.Two,
             },
             {
                 enableScripts: true,
-            }
+            },
         );
 
-        const filtPath: vscode.Uri = vscode.Uri.file(this.context.asAbsolutePath("assets/html/screenView.html"));
+        const filtPath: vscode.Uri = vscode.Uri.file(
+            this.context.asAbsolutePath("assets/html/screenView.html"),
+        );
 
         this.setWebviewContent();
         this.screenOpened = true;
@@ -48,7 +50,7 @@ export class ScreenManager {
             }
         });
 
-        vscode.window.onDidChangeActiveColorTheme(e => {
+        vscode.window.onDidChangeActiveColorTheme((e) => {
             this.setWebviewContent();
         });
     }
@@ -81,10 +83,12 @@ export class ScreenManager {
             let workspaceFolders = vscode.workspace.workspaceFolders;
 
             let data = {
-                image: this.screenPanel.webview.asWebviewUri(vscode.Uri.file(testCase.getImagePath()!)).toString(),
+                image: this.screenPanel.webview
+                    .asWebviewUri(vscode.Uri.file(testCase.getImagePath()!))
+                    .toString(),
                 stats: testCase.stats,
                 status: testCase.status,
-            }
+            };
             this.screenPanel.webview.postMessage({ command: "show_past_screen", data: data });
             this.mode = "past";
         }
@@ -103,8 +107,10 @@ export class ScreenManager {
             return;
         }
 
-        const filtPath: vscode.Uri = vscode.Uri.file(this.context.asAbsolutePath("assets/html/screenView.html"));
-        let contents = fs.readFileSync(filtPath.fsPath, "utf8");;
+        const filtPath: vscode.Uri = vscode.Uri.file(
+            this.context.asAbsolutePath("assets/html/screenView.html"),
+        );
+        let contents = fs.readFileSync(filtPath.fsPath, "utf8");
 
         const buttonBackgroundColor = new vscode.ThemeColor("button.background");
         const buttonTextColor = new vscode.ThemeColor("button.foreground");

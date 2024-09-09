@@ -1,5 +1,19 @@
 // Place your settings in this file to overwrite default and user settings.
 {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "eslint.probe": [
+        "astro",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "html",
+        "mdx",
+        "vue",
+        "markdown",
+        "json",
+        "jsonc"
+    ],
     "files.exclude": {
         "out": false // set this to true to hide the "out" folder with the compiled JS files
     },

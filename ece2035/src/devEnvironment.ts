@@ -1,6 +1,6 @@
-import * as vscode from 'vscode';
-import * as path from 'path';
-import * as fs from 'fs';
+import * as vscode from "vscode";
+import * as path from "path";
+import * as fs from "fs";
 
 export function setUpDevEnvironment(context: vscode.ExtensionContext, targetDir: string) {
     // Copies the /src/exampleProject folder into the target directory

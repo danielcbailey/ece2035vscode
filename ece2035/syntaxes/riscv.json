@@ -1,112 +1,112 @@
 {
-  "scopeName": "source.riscv",
-  "patterns": [{"include": "#expressions"}],
-  "repository": {
-    "expressions": {
-      "patterns": [
-        {"include": "#opcode"},
-        {"include": "#paren-expression"},
-        {"include": "#strings"},
-        {"include": "#sections"},
-        {"include": "#comments"},
-        {"include": "#datatypes"},
-        {"include": "#registers"},
-        {"include": "#constants"},
-        {"include": "#labels"}
-      ]
-    },
-
-    "opcode": {
-      "patterns": [
-        {
-          "match": "\\b(add|sub|xor|or|and|sll|sra|srl|slt|sltu|addi|xori|ori|andi|slli|srli|srai|slti|sltiu|lb|lh|lw|lbu|lhu|sb|sh|sw|beq|bne|blt|bge|bltu|bgeu|jal|jalr|lui|auipc|ecall|ebreak|mul|mulh|mulsu|mulu|div|divu|rem|remu)\\b",
-          "name": "entity.name.function.riscv"
-        }
-      ]
-    },
-
-    "datatypes": {
-      "patterns": [
-        {
-          "match": "\\.word|\\.alloc|\\.ascii",
-          "name": "entity.name.type.riscv"
-        }
-      ]
-    },
-
-    "sections": {
-      "patterns": [
-        {
-          "match": "\\.data|\\.rodata|\\.text",
-          "name": "entity.name.section.riscv"
-        }
-      ]
-    },
-
-    "comments": {
-      "name": "comment.line.riscv",
-      "begin": "#",
-      "end": "\n"
-    },
-
-    "registers": {
-      "patterns": [
-        {
-          "match": "\\b(x10|x11|x12|x13|x14|x15|x16|x17|x18|x19|x20|x21|x22|x23|x24|x25|x26|x27|x28|x29|x30|x31|x0|x1|x2|x3|x4|x5|x6|x7|x8|x9|a0|a1|a2|a3|a4|a5|a6|a7|t0|t1|t2|t3|t4|t5|t6|t7|s0|s1|s2|s3|s4|s5|s6|s7|s8|s9|s10|s11|fp|zero|ra|sp|gp|tp)",
-          "name": "variable.language.riscv"
-        }
-      ]
-    },
-
-    "constants": {
-      "patterns": [
-        {
-          "match": "\\b(0x[a-fA-F0-9](?:_*[a-fA-F0-9])*[lL]?|(?:0|[1-9](?:_*[0-9])*)[lL]?)\\b",
-          "name": "constant.numeric.riscv"
-        }
-      ]
-    },
-
-    "labels": {
-      "patterns": [
-        {
-          "match": "\\b([A-Za-z0-9_]+):",
-          "name": "entity.name.tag.riscv"
+    "scopeName": "source.riscv",
+    "patterns": [{ "include": "#expressions" }],
+    "repository": {
+        "expressions": {
+            "patterns": [
+                { "include": "#opcode" },
+                { "include": "#paren-expression" },
+                { "include": "#strings" },
+                { "include": "#sections" },
+                { "include": "#comments" },
+                { "include": "#datatypes" },
+                { "include": "#registers" },
+                { "include": "#constants" },
+                { "include": "#labels" }
+            ]
         },
-        {
-          "match": "\\b([A-Za-z0-9_]+)\\b",
-          "name": "variable.parameter.riscv"
-        }
-      ]
-    },
 
-    "strings": {
-      "name": "string.quoted.double.riscv",
-      "begin": "\"",
-      "end": "\"",
-      "patterns": [
-        {
-          "name": "constant.character.escape.riscv",
-          "match": "\\\\."
+        "opcode": {
+            "patterns": [
+                {
+                    "match": "\\b(add|sub|xor|or|and|sll|sra|srl|slt|sltu|addi|xori|ori|andi|slli|srli|srai|slti|sltiu|lb|lh|lw|lbu|lhu|sb|sh|sw|beq|bne|blt|bge|bltu|bgeu|jal|jalr|lui|auipc|ecall|ebreak|mul|mulh|mulsu|mulu|div|divu|rem|remu)\\b",
+                    "name": "entity.name.function.riscv"
+                }
+            ]
         },
-        {
-          "name": "keyword.control.riscv",
-          "match": "%."
-        }
-      ]
-    },
 
-    "paren-expression": {
-      "begin": "\\(",
-      "end": "\\)",
-      "beginCaptures": {
-        "0": { "name": "punctuation.paren.open" }
-      },
-      "endCaptures": {
-        "0": { "name": "punctuation.paren.close" }
-      },
-      "name": "expression.group",
-      "patterns": [{ "include": "#expressions" }]
+        "datatypes": {
+            "patterns": [
+                {
+                    "match": "\\.word|\\.alloc|\\.ascii",
+                    "name": "entity.name.type.riscv"
+                }
+            ]
+        },
+
+        "sections": {
+            "patterns": [
+                {
+                    "match": "\\.data|\\.rodata|\\.text",
+                    "name": "entity.name.section.riscv"
+                }
+            ]
+        },
+
+        "comments": {
+            "name": "comment.line.riscv",
+            "begin": "#",
+            "end": "\n"
+        },
+
+        "registers": {
+            "patterns": [
+                {
+                    "match": "\\b(x10|x11|x12|x13|x14|x15|x16|x17|x18|x19|x20|x21|x22|x23|x24|x25|x26|x27|x28|x29|x30|x31|x0|x1|x2|x3|x4|x5|x6|x7|x8|x9|a0|a1|a2|a3|a4|a5|a6|a7|t0|t1|t2|t3|t4|t5|t6|t7|s0|s1|s2|s3|s4|s5|s6|s7|s8|s9|s10|s11|fp|zero|ra|sp|gp|tp)",
+                    "name": "variable.language.riscv"
+                }
+            ]
+        },
+
+        "constants": {
+            "patterns": [
+                {
+                    "match": "\\b(0x[a-fA-F0-9](?:_*[a-fA-F0-9])*[lL]?|(?:0|[1-9](?:_*[0-9])*)[lL]?)\\b",
+                    "name": "constant.numeric.riscv"
+                }
+            ]
+        },
+
+        "labels": {
+            "patterns": [
+                {
+                    "match": "\\b([A-Za-z0-9_]+):",
+                    "name": "entity.name.tag.riscv"
+                },
+                {
+                    "match": "\\b([A-Za-z0-9_]+)\\b",
+                    "name": "variable.parameter.riscv"
+                }
+            ]
+        },
+
+        "strings": {
+            "name": "string.quoted.double.riscv",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.riscv",
+                    "match": "\\\\."
+                },
+                {
+                    "name": "keyword.control.riscv",
+                    "match": "%."
+                }
+            ]
+        },
+
+        "paren-expression": {
+            "begin": "\\(",
+            "end": "\\)",
+            "beginCaptures": {
+                "0": { "name": "punctuation.paren.open" }
+            },
+            "endCaptures": {
+                "0": { "name": "punctuation.paren.close" }
+            },
+            "name": "expression.group",
+            "patterns": [{ "include": "#expressions" }]
+        }
     }
-  }
 }

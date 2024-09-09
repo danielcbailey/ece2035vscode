@@ -1,200 +1,203 @@
 {
-  "name": "ece2035",
-  "displayName": "ECE2035",
-  "description": "VS Code Companion Extension for Georgia Tech ECE 2035",
-  "publisher": "GatechECE2035",
-  "version": "0.0.16",
-  "engines": {
-    "vscode": "^1.75.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onDebugResolve:riscv-vm"
-  ],
-  "main": "./out/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "ece2035.openscreen",
-        "title": "Open RISC-V Screen"
-      },
-      {
-        "command": "ece2035.newAssignment",
-        "title": "Create New RISCV Assignment"
-      },
-      {
-        "command": "ece2035.runTestCase",
-        "title": "Run RISCV Test Case",
-        "icon": "$(play)"
-      },
-      {
-        "command": "ece2035.debugTestCase",
-        "title": "Debug RISCV Test Case",
-        "icon": "$(debug-alt)"
-      },
-      {
-        "command": "ece2035.runAllTestCases",
-        "title": "Run All RISCV Test Cases",
-        "icon": "$(run-all)"
-      },
-      {
-        "command": "ece2035.deleteTestCase",
-        "title": "Delete RISCV Test Case",
-        "icon": "$(trash)"
-      },
-      {
-        "command": "ece2035.viewTestCase",
-        "title": "View RISCV Test Case"
-      }
+    "name": "ece2035",
+    "displayName": "ECE2035",
+    "description": "VS Code Companion Extension for Georgia Tech ECE 2035",
+    "publisher": "GatechECE2035",
+    "version": "0.0.16",
+    "engines": {
+        "vscode": "^1.75.0"
+    },
+    "categories": [
+        "Other"
     ],
-    "breakpoints": [
-      {
-        "language": "riscv"
-      }
+    "activationEvents": [
+        "onDebugResolve:riscv-vm"
     ],
-    "debuggers": [
-      {
-        "type": "riscv-vm",
-        "languages": [
-          "riscv"
-        ],
-        "label": "RISC-V Emulator",
-        "configurationAttributes": {
-          "launch": {
-            "required": [
-              "program"
-            ],
-            "properties": {
-              "program": {
-                "type": "string",
-                "description": "A workspace-relative path to the assembly file.",
-                "default": "${file}"
-              },
-              "assignment": {
-                "type": "string",
-                "description": "The workspace-relative path to the assignment binary file.",
-                "default": "assignment.bin"
-              },
-              "auto_open_screen": {
-                "type": "boolean",
-                "description": "Whether to automatically open the screen when debugging.",
-                "default": true
-              },
-              "seed": {
-                "type": "number",
-                "description": "The seed to use for the random number generator. Zero means to use a random seed.",
-                "default": 0
-              }
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "ece2035.openscreen",
+                "title": "Open RISC-V Screen"
+            },
+            {
+                "command": "ece2035.newAssignment",
+                "title": "Create New RISCV Assignment"
+            },
+            {
+                "command": "ece2035.runTestCase",
+                "title": "Run RISCV Test Case",
+                "icon": "$(play)"
+            },
+            {
+                "command": "ece2035.debugTestCase",
+                "title": "Debug RISCV Test Case",
+                "icon": "$(debug-alt)"
+            },
+            {
+                "command": "ece2035.runAllTestCases",
+                "title": "Run All RISCV Test Cases",
+                "icon": "$(run-all)"
+            },
+            {
+                "command": "ece2035.deleteTestCase",
+                "title": "Delete RISCV Test Case",
+                "icon": "$(trash)"
+            },
+            {
+                "command": "ece2035.viewTestCase",
+                "title": "View RISCV Test Case"
             }
-          }
-        },
-        "initialConfigurations": [
-          {
-            "type": "riscv-vm",
-            "request": "launch",
-            "name": "Run Assembly",
-            "program": "${file}",
-            "auto_open_screen": false
-          }
-        ]
-      }
-    ],
-    "languages": [
-      {
-        "id": "riscv",
-        "aliases": [
-          "RISC-V",
-          "RISC-V Assembly"
         ],
-        "extensions": [
-          ".asm"
+        "breakpoints": [
+            {
+                "language": "riscv"
+            }
         ],
-        "configuration": "./language-configuration.json"
-      }
-    ],
-    "grammars": [
-      {
-        "language": "riscv",
-        "scopeName": "source.riscv",
-        "path": "./syntaxes/riscv.json"
-      }
-    ],
-    "views": {
-      "test": [
-        {
-          "id": "riscvtestcases",
-          "name": "RISC-V Testcases"
-        }
-      ]
-    },
-    "menus": {
-      "view/item/context": [
-        {
-          "command": "ece2035.deleteTestCase",
-          "when": "viewItem == testcase",
-          "group": "inline@3"
+        "debuggers": [
+            {
+                "type": "riscv-vm",
+                "languages": [
+                    "riscv"
+                ],
+                "label": "RISC-V Emulator",
+                "configurationAttributes": {
+                    "launch": {
+                        "required": [
+                            "program"
+                        ],
+                        "properties": {
+                            "program": {
+                                "type": "string",
+                                "description": "A workspace-relative path to the assembly file.",
+                                "default": "${file}"
+                            },
+                            "assignment": {
+                                "type": "string",
+                                "description": "The workspace-relative path to the assignment binary file.",
+                                "default": "assignment.bin"
+                            },
+                            "auto_open_screen": {
+                                "type": "boolean",
+                                "description": "Whether to automatically open the screen when debugging.",
+                                "default": true
+                            },
+                            "seed": {
+                                "type": "number",
+                                "description": "The seed to use for the random number generator. Zero means to use a random seed.",
+                                "default": 0
+                            }
+                        }
+                    }
+                },
+                "initialConfigurations": [
+                    {
+                        "type": "riscv-vm",
+                        "request": "launch",
+                        "name": "Run Assembly",
+                        "program": "${file}",
+                        "auto_open_screen": false
+                    }
+                ]
+            }
+        ],
+        "languages": [
+            {
+                "id": "riscv",
+                "aliases": [
+                    "RISC-V",
+                    "RISC-V Assembly"
+                ],
+                "extensions": [
+                    ".asm"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "riscv",
+                "scopeName": "source.riscv",
+                "path": "./syntaxes/riscv.json"
+            }
+        ],
+        "views": {
+            "test": [
+                {
+                    "id": "riscvtestcases",
+                    "name": "RISC-V Testcases"
+                }
+            ]
         },
-        {
-          "command": "ece2035.runTestCase",
-          "when": "viewItem == testcase",
-          "group": "inline@1"
+        "menus": {
+            "view/item/context": [
+                {
+                    "command": "ece2035.deleteTestCase",
+                    "when": "viewItem == testcase",
+                    "group": "inline@3"
+                },
+                {
+                    "command": "ece2035.runTestCase",
+                    "when": "viewItem == testcase",
+                    "group": "inline@1"
+                },
+                {
+                    "command": "ece2035.debugTestCase",
+                    "when": "viewItem == testcase",
+                    "group": "inline@2"
+                }
+            ],
+            "view/title": [
+                {
+                    "command": "ece2035.runAllTestCases",
+                    "when": "view == riscvtestcases",
+                    "group": "navigation"
+                }
+            ]
         },
-        {
-          "command": "ece2035.debugTestCase",
-          "when": "viewItem == testcase",
-          "group": "inline@2"
+        "configuration": {
+            "title": "RISC-V",
+            "properties": {
+                "riscv.emulatorPath": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "(Optional) Specify an explicit emulator executable path to use for debugging."
+                }
+            }
         }
-      ],
-      "view/title": [
-        {
-          "command": "ece2035.runAllTestCases",
-          "when": "view == riscvtestcases",
-          "group": "navigation"
-        }
-      ]
     },
-    "configuration": {
-      "title": "RISC-V",
-      "properties": {
-        "riscv.emulatorPath": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "default": null,
-          "description": "(Optional) Specify an explicit emulator executable path to use for debugging."
-        }
-      }
-    }
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
-  },
-  "devDependencies": {
-    "@types/glob": "^8.1.0",
-    "@types/mocha": "^10.0.1",
-    "@types/node": "16.x",
-    "@types/vscode": "^1.75.0",
-    "@typescript-eslint/eslint-plugin": "^5.53.0",
-    "@typescript-eslint/parser": "^5.53.0",
-    "@vscode/test-electron": "^2.2.3",
-    "eslint": "^8.34.0",
-    "glob": "^8.1.0",
-    "mocha": "^10.2.0",
-    "typescript": "^4.9.5"
-  },
-  "dependencies": {
-    "@microsoft/vscode-file-downloader-api": "^1.0.1",
-    "vscode-languageclient": "^8.1.0"
-  },
-  "extensionDependencies": [
-    "mindaro-dev.file-downloader"
-  ]
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/eslint-config-prettier": "^6.11.3",
+        "@types/glob": "^8.1.0",
+        "@types/mocha": "^10.0.1",
+        "@types/node": "16.x",
+        "@types/vscode": "^1.75.0",
+        "@typescript-eslint/eslint-plugin": "^5.53.0",
+        "@typescript-eslint/parser": "^5.53.0",
+        "@vscode/test-electron": "^2.2.3",
+        "eslint": "^8.34.0",
+        "glob": "^8.1.0",
+        "mocha": "^10.2.0",
+        "prettier": "3.3.3",
+        "typescript": "^4.9.5"
+    },
+    "dependencies": {
+        "@microsoft/vscode-file-downloader-api": "^1.0.1",
+        "eslint-config-prettier": "^9.1.0",
+        "vscode-languageclient": "^8.1.0"
+    },
+    "extensionDependencies": [
+        "mindaro-dev.file-downloader"
+    ]
 }
