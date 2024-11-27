@@ -8,8 +8,8 @@
     content="default-src 'none'; img-src vscode-webview-resource: https:; script-src 'unsafe-inline' vscode-resource; style-src vscode-resource: 'unsafe-inline' http: https:;"
     />
     <script>
-        var socket = null;
-        var seed = "";
+        let socket = null;
+        let seed = "";
         const vscode = acquireVsCodeApi();
 
         function handleUpdateScreen(data) {
@@ -66,13 +66,13 @@
             saveButton.disabled = true;
             saveButton.style = "opacity: 0;"
 
-            var newImg = new Image();
+            let newImg = new Image();
             let srcUrl = data.image;
             console.log("url", srcUrl);
 
             newImg.onload = function() {
-                var height = newImg.height;
-                var width = newImg.width;
+                let height = newImg.height;
+                let width = newImg.width;
                 img.width = width;
                 img.height = height;
 
@@ -189,6 +189,7 @@
         .hidden {
             display: none;
         }
+
     </style>
 </head>
     <body>
