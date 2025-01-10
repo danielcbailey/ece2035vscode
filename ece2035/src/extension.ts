@@ -115,6 +115,11 @@ export function activate(context: vscode.ExtensionContext) {
 			testCasesManager.addNewTestCase(title, data.seed.toString(), "unknown", data.image);
 		});
 	});
+
+
+	screenManager.registerCommandHandler("readMemory", (data) => {
+		console.log("ready triggered");
+	});
 }
 
 // This method is called when your extension is deactivated

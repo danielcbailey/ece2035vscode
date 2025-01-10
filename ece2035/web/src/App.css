@@ -1,0 +1,232 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.primary-button {
+  background-color: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+  border: none;
+  cursor: pointer;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.primary-button:hover {
+  background-color: var(--vscode-button-hoverBackground);
+}
+
+.focus-area {
+  border: 2px solid var(--vscode-foreground);
+  display: inline-block;
+}
+
+table {
+  padding: 20px;
+  padding-top: 0px;
+}
+
+th {
+  border-bottom: 1.5px solid var(--vscode-foreground);
+  width: 75px;
+}
+
+td {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.hex-viewer {
+  display: flex;
+  flex-direction: column;
+  font-family: monospace;
+  color: #d4d4d4;
+  padding: 20px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.row {
+  display: flex;
+  margin: 2px 0;
+}
+
+.address {
+  color: #569cd6;
+  margin-right: 20px;
+  min-width: 80px;
+}
+
+.hex-values {
+  margin-right: 20px;
+}
+
+.hex-value {
+  color: #b5cea8;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.hex-value-instruction {
+  color: #cdabcd;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.hex-value-recently-changed {
+  color: #ffa1a1;
+  margin-right: 8px;
+  cursor: pointer;
+  background: #2d2d2d;
+}
+
+.hex-value:hover {
+  color: #dcdcaa;
+  background: #2d2d2d;
+}
+
+.ascii {
+  color: #ce9178;
+}
+
+.ascii span {
+  margin-right: 4px;
+}
+
+.selected {
+  background: #264f78;
+}
+
+.vscode-checkbox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 18px;
+  padding: 2px 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.vscode-checkbox input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+.checkmark {
+  box-sizing: border-box;
+  position: relative;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  background-color: var(--vscode-input-background);
+  border: 1px solid
+    var(--vscode-settings-checkboxBorder, var(--vscode-input-border));
+  border-radius: 3px;
+}
+
+.vscode-checkbox:hover .checkmark {
+  border-color: var(
+    --vscode-settings-checkboxForeground,
+    var(--vscode-inputOption-activeBorder)
+  );
+}
+
+.vscode-checkbox input:checked + .checkmark {
+  background-color: var(--vscode-inputOption-activeBackground);
+  border-color: var(--vscode-inputOption-activeBorder);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: solid
+    var(--vscode-inputOption-activeForeground, var(--vscode-editor-foreground));
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.vscode-checkbox input:checked + .checkmark:after {
+  display: block;
+}
+
+.vscode-checkbox span {
+  margin-left: 6px;
+  color: var(--vscode-foreground);
+  font-family: var(--vscode-font-family);
+  font-size: var(--vscode-font-size);
+  line-height: 18px;
+}
+
+.vscode-checkbox input:disabled + .checkmark {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.vscode-checkbox input:disabled ~ span {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.vscode-checkbox input:focus + .checkmark {
+  outline: 1px solid var(--vscode-focusBorder);
+  outline-offset: 1px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (width >= 500px) {
+  .flex-container {
+    flex-direction: row;
+  }
+}
