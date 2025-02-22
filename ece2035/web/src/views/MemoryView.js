@@ -39,10 +39,6 @@ export default function MemoryView({ title, baseAddress, memoryData, oldMemory, 
         </div>);
     });
 
-  if (reverse) {
-    rowData = rowData.reverse();
-  }
-
   return <div>
     <h5>{title}</h5>
 
